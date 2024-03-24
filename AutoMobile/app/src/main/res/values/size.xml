@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="round">12dp</dimen>
+    <dimen name="largeFont">24sp</dimen>
+    <dimen name="middleFont">22sp</dimen>
+    <dimen name="smallFont">18sp</dimen>
+    <dimen name="smallSmallFont">12sp</dimen>
+</resources>
