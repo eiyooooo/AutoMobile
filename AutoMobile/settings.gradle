@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "AutoMobile"
 include ':app'
 include ':helper'
+include ':scrcpy'
