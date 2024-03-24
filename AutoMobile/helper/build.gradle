@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application' version '8.2.0'
+}
+
+android {
+    namespace 'com.eiyooooo.automobile.helper'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.eiyooooo.automobile.helper'
+        minSdk 21
+        targetSdk 34
+        versionCode 10000
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    task copyRelease(type: Copy) {
+        dependsOn 'assembleRelease'
+        from file('build/outputs/apk/release/helper-release-unsigned.apk')
+        into file('../app/src/main/res/raw/')
+        rename('helper-release-unsigned.apk', 'helper.jar')
+    }
+
+    task copyDebug(type: Copy) {
+        dependsOn 'assembleDebug'
+        from file("build/outputs/apk/debug/helper-debug.apk")
+        into file('../app/src/main/res/raw/')
+        rename('helper-debug.apk', 'helper.jar')
+    }
+}
+
+dependencies {
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+}
